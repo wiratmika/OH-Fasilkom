@@ -1,0 +1,543 @@
+@import "normalize";
+@import "skeleton";
+@import "font-awesome";
+
+// =================
+// TABLE OF CONTENTS
+// =================
+// 01 Variables
+// 02 Mixins
+// 03 Helpers
+// 04 Base
+// 05 Typography
+// 06 Image
+// 07 Header
+// 08 Footer
+// 09 Landing Section
+// 10 What Section
+// 11 What Section
+// 15 Quote Section
+// 13 Teaser Section
+// 14 Contact Section
+// 15 Event Section
+
+
+// ============
+// 01 Variables
+// ============
+$blue: rgb(50, 110, 120);
+$red: rgb(227, 51, 53);
+$white: rgb(249, 246, 248);
+$yellow: rgb(240, 169, 47);
+
+$sans-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$serif: 'GearedSlab', Georgia, Cambria, 'Times New Roman', Times, serif;
+
+$nav-pad: 35px;
+
+// =========
+// 02 Mixins
+// =========
+@mixin separator {
+	bottom: 60px;
+	height: 30px;
+	position: absolute;
+	width: 100%;
+}
+
+@mixin border($color) {
+	border-bottom: 7px solid $color;
+}
+
+@mixin stripe($color) {
+	background-image: linear-gradient(-45deg, $color 25%, transparent 25%,
+						transparent 50%, $color 50%, $color 75%,
+						transparent 0%);
+}
+
+// ==========
+// 03 Helpers
+// ==========
+.yellow-bg {
+	background-color: $yellow;
+}
+
+.white-bg {
+	background-color: $white;
+}
+
+.red-bg {
+	background-color: $red;
+}
+
+.blue-bg {
+	background-color: $blue;
+}
+
+.text-right {
+	right: 0;
+	text-align: right;
+}
+
+.right-border {
+	border-right: 3px solid rgb(94, 96, 97);
+	margin-right: 1em;
+	padding-right: 1em;
+
+	// todo: kasi media query buat menghilangkan diri
+}
+
+.bottom-border {
+	@include border($red);
+}
+
+.clearfix:after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+// =======
+// 04 Base
+// =======
+@font-face {
+	font-family: 'GearedSlab';
+	src: url('../fonts/GearedSlab.ttf');
+}
+
+@font-face {
+	font-family: 'GearedSlab';
+	font-weight: bold;
+	src: url('../fonts/GearedSlab-Bold.ttf');
+}
+
+body {
+	font-family: $serif;
+}
+
+header, section, footer {
+	position: relative;
+}
+
+::selection {
+	background-color: $yellow;
+	color: $white;
+}
+
+// =============
+// 05 Typography
+// =============
+ul {
+	padding-left: 0;
+}
+
+ul li {
+	display: inline-block;
+}
+
+h1 { // Logo
+	background-image: url("../img/header.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-bottom: 0;
+	margin-top: 10px;
+	text-indent: -9999px;
+}
+
+h2 { // For title
+	color: $white;
+	font-size: 10rem;
+	font-weight: bold;
+	line-height: 0.9em;
+}
+
+h3 { // For section headers
+	font-size: 6.5rem;
+}
+
+#what h3 {
+	@include border($red);
+	text-align: right;
+}
+
+#when h3 {
+	color: $white;;
+}
+
+#quote h3 {
+	font-weight: bold;
+}
+
+h3#quoteup {
+	color: $yellow;
+	font-size: 8rem;
+	text-align: right;
+}
+
+h3#quotedown {
+	color: $blue;
+	font-size: 10rem;
+}
+
+#teaser h3 {
+	background-color: $white;
+	color: $blue;
+	height: 1.3em;
+	padding-right: 1em;
+	padding-left: 0.6em;
+	padding-top: 0.15em;
+	position: absolute;
+	right: 0;
+}
+
+#contact h3 {
+	color: $yellow;
+	font-weight: bold;
+	line-height: 1.2em;
+	margin-bottom: 0;
+}
+
+#event h3 {
+	@include border($blue);
+	text-align: right;
+}
+
+#dontmiss-stripes h3 {
+	font-weight: bold;
+	font-size: 5em;
+}
+
+h4 {
+	font-size: 3.5rem;
+}
+
+#when h4 {
+	color: $white;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#quote h4 {
+	text-align: right;
+}
+
+#contact h4 {
+	color: $red;
+}
+
+#rundown h4 {
+	margin: 0;
+}
+
+p {
+	font-size: 2rem;
+}
+
+#what p {
+	font-family: $sans-serif;
+}
+
+#when p {
+	color: $white;
+	font-size: 3.5rem;
+}
+
+#contact p {
+	display: inline;
+}
+
+.rundown-desc p {
+	font-family: $sans-serif;
+}
+
+.event p {
+	color: $red;
+	font-size: 2.5rem;
+	line-height: 1.2em;
+}
+
+footer p {
+	position: absolute;
+	font-size: 3rem;
+}
+
+#when a {
+	color: $white;
+}
+
+#when a:hover {
+	color: $white;
+}
+
+#contact a {
+	text-decoration: none;
+}
+
+#contact a:hover {
+	color: $red;
+}
+
+// ========
+// 06 Image
+// ========
+.when-img {
+	display: block;
+	margin: auto;
+	max-width: 60%;
+}
+
+.contact-img {
+	display: inline-block;
+	height: 5em;
+}
+
+.rundown-img {
+	display: inline;
+	float: left;
+	margin-right: 5%;
+	max-width: 20%;
+}
+
+.event-img {
+	float: left;
+	margin-right: 1em;
+	max-width: 20%;
+}
+
+#dontmiss-stripes img {
+	bottom: -4.8em;
+	max-width: 50%;
+	position: absolute;
+	right: 5em;
+}
+
+// =========
+// 07 Header
+// =========
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+nav {
+	font-family: "GearedSlab";
+	letter-spacing: 0.1em;
+	margin-top: 15px;
+
+	a {
+		color: $white;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	ul {
+		margin: 0;
+
+		li {
+			font-size: 3rem;
+			margin-bottom: 0;
+			margin-right: 1.2em;
+		}
+	}
+}
+
+// =========
+// 08 Footer
+// =========
+footer {
+	bottom: 0;
+	min-height: 5em;
+	padding-top: 50px;
+	width: 100%;
+	color: $white;
+}
+
+.footer-index {
+	position: absolute;
+}
+
+.footer-event {
+	position: relative;
+}
+
+ul#rainbow {
+	font-size: 0;
+	height: 30px;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+#rainbow li {
+	display: inline-block;
+	height: 100%;
+	width: 50%;
+}
+
+#rainbow li:nth-child(1) {
+	background-color: $yellow;
+}
+
+#rainbow li:nth-child(2) {
+	background-color: $blue;
+}
+
+// ==================
+// 09 Landing Section
+// ==================
+#landing {
+	background-image: url("../img/computer.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 40%;
+	min-height: 100vh;
+}
+
+#title {
+	margin-top: 30%;
+}
+
+#landing-separator {
+	@include separator;
+	background-color: $white;
+	height: 10px;
+}
+
+// ===============
+// 10 What Section
+// ===============
+#what-stripes {
+	@include stripe($white);
+	background-color: $yellow;
+	background-size: 30px 30px;
+	height: 15em;
+}
+
+#what-stripes img {
+	bottom: -5em;
+	max-width: 115%;
+	right: 3em;
+}
+
+// ===============
+// 11 What Section
+// ===============
+#when-separator {
+	@include separator;
+	@include stripe($white);
+	background-color: $red;
+	background-size: 30px 30px;
+}
+
+// ================
+// 12 Quote Section
+// ================
+#quote {
+	padding-top: $nav-pad;
+}
+
+#quote-separator {
+	@include separator;
+	background-color: $yellow;
+}
+
+// =================
+// 13 Teaser Section
+// =================
+#teaser {
+	padding-top: $nav-pad;
+}
+
+#teaser-block {
+	background-color: $white;
+	height: 6.35em;
+	position: absolute;
+	right: 19em;
+	top: 0;
+	width: 25px;
+}
+
+.video {
+	height: 0;
+	margin-top: 8em;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	position: relative;
+}
+
+.video iframe {
+	border: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+// ==================
+// 14 Contact Section
+// ==================
+.link {
+	color: $red;
+	display: inline-block;
+}
+
+// ================
+// 15 Event Section
+// ================
+#event-title {
+	height: 15em;
+	padding-top: 150px;
+}
+
+#event {
+	padding-top: $nav-pad;
+}
+
+.event {
+	display: inline-block;
+	margin-bottom: 1em;
+}
+
+#rundown li {
+	margin-bottom: 2em;
+}
+
+.rundown-desc {
+	display: inline;
+	float: right;
+	max-width: 75%;
+}
+
+#dontmiss-stripes {
+	@include stripe($white);
+	background-color: $yellow;
+	background-size: 30px 30px;
+	margin-bottom: 5em;
+	padding: 2em 0 8em 3em;
+}
+
+
+// Media Queries
+@media screen and (max-width: 1000px) { //nav, landing mulai ngaco
+
+}
+
+@media screen and (max-width: 920px) { // socmed
+
+}
+
+@media screen and (max-width: 800px) { // What img Belom break?? contact us kecilin. semua contact berantarakan
+	.right-border {
+		border-right: none;
+	}
+}
+
+@media screen and (max-width: 600px) { //nav, landing mulai ngaco. nav kecilin marginnya
+
+}
