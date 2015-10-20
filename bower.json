@@ -1,0 +1,26 @@
+{
+  "name": "oh-fasilkom",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "foundation": "~5.5.3",
+    "font-awesome": "fontawesome#~4.4.0",
+    "scrollreveal": "scrollReveal.js#~2.3.2"
+  },
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "./css/font-awesome.css",
+        "./fonts/*"
+      ]
+    },
+    "foundation": {
+      "main": ["js/foundation.js"]
+    }
+  }
+}
